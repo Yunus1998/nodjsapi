@@ -6,11 +6,16 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+var port = process.env.PORT || 3000;
+
 
 app.use(express.static('./public'));
 
 //connect to db
-mongoose.connect('mongodb://localhost/studentsdb');
+// mongoose.connect('mongodb://localhost/studentsdb');
+
+mongoose.connect('mongodb://Yunus:timmyayo1998@ds259305.mlab.com:59305/studentsdb');
+
 
 mongoose.Promise = global.Promise;
 
@@ -30,7 +35,7 @@ app.use(function(err, req, res, next){
 });
 
 //initialise the server to port 3000
-app.listen(3000, function(){
+app.listen(port, function(){
 
     console.log('We are rocking on port 3000')
 });
